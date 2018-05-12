@@ -1,0 +1,44 @@
+machine:
+  timezone: Africa/Cairo
+  php:
+    version: 5.6.14
+  python:
+    version: 3.5.0
+  node:
+    version: 5.0.0
+  environment:
+    APP_ENV: testing
+    DB_HOST: 127.0.0.1
+    DB_DATABASE: circle_test
+    DB_USERNAME: ubuntu
+    APP_KEY: jONqYh2kdAYhEiZ9KFY5b0A5UGPMarTB
+    BUGSNAG_API_KEY: 1b89cfcc690cd2453e5c32c7308d106c
+    AWS_ACCESS_KEY_ID: AKIAIG6WOY7FL5IBAGEA
+    AWS_SECRET_KEY: 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
+    AWS_REGION: eu-west-1
+    AWS_S3_BUCKET: scoutmee-dev
+deployment:
+  dev:
+    branch: dev
+    commands:
+      - './deploy.sh dev':
+          timeout: 600
+  prod:
+    branch: master
+    commands:
+      - './deploy.sh master':
+          timeout: 600
+dependencies:
+  post:
+    - php artisan migrate 
+    - php artisan db:seed
+  pre:
+    - pip install --upgrade pip
+    - pip install awsebcli
+    - sudo apt-add-repository -y 'deb
+      http://ppa.launchpad.net/ondrej/mysql-experimental/ubuntu precise
+      main'
+    - sudo apt-get update; sudo DEBIAN_FRONTEND=noninteractive apt-get
+      install -y mysql-server-5.6
+    - export PATH="$PATH:$HOME/.composer/vendor/bin"
+    

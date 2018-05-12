@@ -1,0 +1,1 @@
+{"object":"page","entry":[{"id":"1445994865675343","time":1461228941,"changes":[{"field":"feed","value":{"item":"status","verb":"add","post_id":"1445994865675343_1686297988311695","sender_id":1445994865675343,"published":1,"created_time":1461228940,"message":"test mee","sender_name":"\u0627\u062d\u0644\u0649 \u0643\u0648\u0645\u0646\u062a \u062c\u062f\u064a\u062f"}}]}]}

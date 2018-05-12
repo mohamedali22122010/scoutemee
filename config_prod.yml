@@ -1,0 +1,21 @@
+branch-defaults:
+  dev:
+    environment: moselaymd-scoutmee-dev
+  master:
+    aws-access-id: AKIAJF6JNB25HELGA6SQ
+    aws-secret-key: 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
+    environment: scoutmee-prod
+container_commands:
+  01migrate:
+    command: php artisan migrate
+    leader_only: true
+  02seed:
+    command: php artisan db:seed
+    leader_only: true
+global:
+  application_name: Scoutmee
+  default_ec2_keyname: prod-key
+  default_platform: 64bit Amazon Linux 2015.09 v2.0.6 running PHP 5.6
+  default_region: us-west-2
+  profile: eb-cli
+  sc: git
